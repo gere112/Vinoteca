@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar color="primary" >Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="inicio">Inicio</a>
+      <a mat-list-item routerLink="bodegas">Bodegas</a>
+
+      <a mat-list-item routerLink="novedades-o-ofertas">¡Novedades!</a>
+      <a mat-list-item routerLink="nuestra-empresa">Nuestra empresa</a>
+      <a  mat-list-item routerLink="por-cepas">Cepas</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Los vientos del sur</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
